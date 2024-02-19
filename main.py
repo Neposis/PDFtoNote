@@ -26,7 +26,8 @@ if __name__ == '__main__':
 	lines = PdfReader("./Lined.pdf")
 	
 	lines = lines.pages[0]
-	
+	print("Processing PDFs")
+	count = 1
 	for i in pdfs:
 		writer = PdfWriter()
 		reader = PdfReader("./in/{}".format(i))
@@ -35,7 +36,7 @@ if __name__ == '__main__':
 		scalew = 500/width
 		scaleh = 590/height
 		scalef = min(scalew, scaleh)
-		print(scalew, scaleh)
+		# print(scalew, scaleh)
 		right = Transformation().scale(0.5, 0.5).translate(500, 75)
 		left = Transformation().scale(scalef, scalef).translate(0, 150*(scaleh>1))
 		
@@ -46,5 +47,10 @@ if __name__ == '__main__':
 			tmpp.merge_transformed_page(lines, right)
 		
 		writer.write("./out/{}".format(i))
+		print(" {0}/{1}".format(count, len(reader.pages)))
+		count += 1
 		
+	print("Completed, enjoy :P")
+	print("Press any key to continue...")
+	input()
 		
