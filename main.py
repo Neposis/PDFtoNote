@@ -23,7 +23,7 @@ def get_width(page):
 
 if __name__ == '__main__':
 	pdfs = open_pdfs()
-	lines = PdfReader("./Lined.pdf")
+	lines = PdfReader(Path(__file__).resolve().with_name("Lined.pdf"))
 	
 	lines = lines.pages[0]
 	print("Processing PDFs")
@@ -37,7 +37,7 @@ if __name__ == '__main__':
 		scaleh = 590/height
 		scalef = min(scalew, scaleh)
 		# print(scalew, scaleh)
-		right = Transformation().scale(0.5, 0.5).translate(500, 75)
+		right = Transformation().scale(0.5, 0.6).translate(500, 65)
 		left = Transformation().scale(scalef, scalef).translate(0, 150*(scaleh>1))
 		
 		for leftp in reader.pages:
@@ -47,7 +47,7 @@ if __name__ == '__main__':
 			tmpp.merge_transformed_page(lines, right)
 		
 		writer.write("./out/{}".format(i))
-		print(" {0}/{1}".format(count, len(reader.pages)))
+		print(" {0}/{1}".format(count, len(pdfs)))
 		count += 1
 		
 	print("Completed, enjoy :P")
