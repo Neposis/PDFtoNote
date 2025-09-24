@@ -4,12 +4,14 @@ Essentially adds a lined section to the right of a slide for you to make notes o
 
 Auto adjusts to both horizontal and vertical slides to maximise space available.
 
-TL;DR:
+TL;DR:  
+```
+------------------  ----------  
+|                |  ----------  
+|     Slide      |  --notes---  
+|                |  ----------  
 ------------------  ----------
-|                |  ----------
-|     Slide      |  ----------
-|                |  ----------
-------------------  ----------
+```
 
 Personally used for note making while at uni.
 
